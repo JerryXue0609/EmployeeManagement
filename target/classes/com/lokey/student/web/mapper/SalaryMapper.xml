@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lokey.student.web.mapper.SalaryMapper" >
+  <resultMap id="BaseResultMap" type="com.lokey.student.web.model.Salary" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="userId" property="userId" jdbcType="VARCHAR" />
+    <result column="baseSalary" property="baseSalary" jdbcType="INTEGER" />
+    <result column="salary" property="salary" jdbcType="INTEGER" />
+    <result column="updateTime" property="updateTime" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, userId, userName, baseSalary, salary, updateTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_salary
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_salary
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+
+
+  <insert id="insert" parameterType="com.lokey.student.web.model.Salary" >
+    insert into t_salary ( id, userId, userName, baseSalary, salary, updateTime)
+    values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR},
+     #{baseSalary,jdbcType=INTEGER},
+      #{salary,jdbcType=INTEGER},
+       #{updateTime,jdbcType=VARCHAR})
+  </insert>
+
+  <update id="updateByPrimaryKey" parameterType="com.lokey.student.web.model.Salary" >
+    update t_salary
+    set id = #{id,jdbcType=VARCHAR},
+      userId = #{userId,jdbcType=VARCHAR},
+      userName = #{userName,jdbcType=VARCHAR},
+      baseSalary = #{baseSalary,jdbcType=INTEGER},
+      salary = #{salary,jdbcType=INTEGER},
+      updateTime = #{updateTime,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <select id="selectByUserAndDate" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from t_salary where  1 = 1
+    <if test="userId != null">
+      AND userId = #{userId}
+    </if>
+    <if test="updateTime != null">
+      AND updateTime = #{updateTime}
+    </if>
+  </select>
+
+  <select id="selectByPage" resultMap="BaseResultMap" parameterType="java.util.HashMap" >
+    select
+    <include refid="Base_Column_List" />
+    from t_salary WHERE  1 = 1
+    <if test="userId != null">
+      AND userId = #{userId}
+    </if>
+    ORDER BY updateTime DESC
+    <if test="start != null">
+      LIMIT #{start,jdbcType=INTEGER}, #{end,jdbcType=INTEGER};
+    </if>
+  </select>
+
+  <select id="selectCount" resultType="Integer" parameterType="java.util.HashMap">
+    select count(id) from t_salary WHERE  1 = 1
+    <if test="userId != null">
+      AND userId = #{userId}
+    </if>
+  </select>
+</mapper>

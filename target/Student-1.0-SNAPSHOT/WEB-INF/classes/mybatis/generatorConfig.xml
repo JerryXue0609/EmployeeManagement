@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <classPathEntry
+            location="/Users/yinhaijin/.m2/repository/mysql/mysql-connector-java/5.1.34/mysql-connector-java-5.1.34.jar"/>
+    <context id="my" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressDate" value="false"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://112.124.30.91:3306/hsm?characterEncoding=UTF-8" userId="huashengmi"
+                        password="huashengV200"/>
+
+        <javaModelGenerator targetPackage="com.tesiro.cvzdzj.web.model"
+                            targetProject="/Users/yinhaijin/Desktop/cvzdzj/Server/cvzdzj/cvzdzj-web/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="com.tesiro.cvzdzj.web.mapper"
+                         targetProject="/Users/yinhaijin/Desktop/cvzdzj/Server/cvzdzj/cvzdzj-web/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator targetPackage="com.bdkj.heaDraw.web.dao"
+                             targetProject="/Users/yinhaijin/Desktop/cvzdzj/Server/cvzdzj/cvzdzj-web/src/main/java"
+                             type="XMLMAPPER">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+    </context>
+</generatorConfiguration>

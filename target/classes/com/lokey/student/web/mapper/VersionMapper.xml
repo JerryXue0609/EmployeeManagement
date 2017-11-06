@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lokey.student.web.mapper.VersionMapper">
+
+    <insert id="insertVersion" parameterType="com.lokey.student.web.model.Version" useGeneratedKeys="true" keyProperty="id">
+        <![CDATA[
+        INSERT INTO t_version (id, iosversion, androidversion, createtime, updatetime, ioslimitversion, androidlimitversion, iosurl, androidurl,type) VALUES (#{id}, #{iosversion}, #{androidversion}, #{createtime}, #{updatetime}, #{ioslimitversion}, #{androidlimitversion}, #{iosurl}, #{androidurl},#{type});
+        ]]>
+    </insert>
+    <select id="selectByPage" parameterType="HashMap" resultType="com.lokey.student.web.model.Version">
+        <![CDATA[ SELECT * FROM t_version where 1=1]]>
+        <if test="iosversion != null">
+            and iosversion = #{iosversion}
+        </if>
+        <if test="androidversion != null">
+            and androidversion = #{androidversion}
+        </if>
+        <if test="createtime != null">
+            and createtime = #{createtime}
+        </if>
+        <if test="ioslimitversion != null">
+            and ioslimitversion = #{ioslimitversion}
+        </if>
+        <if test="androidlimitversion != null">
+            and androidlimitversion = #{androidlimitversion}
+        </if>
+        <if test="updatetime != null">
+            and updatetime = #{updatetime}
+        </if>
+        <if test="iosurl != null">
+            and iosurl = #{iosurl}
+        </if>
+        <if test="androidurl != null">
+            and androidurl = #{androidurl}
+        </if>
+        <if test="type != null">
+            and type = #{type}
+        </if>
+        ORDER BY updatetime DESC limit 0, 1
+    </select>
+
+    <update id="updateVersion" parameterType="com.lokey.student.web.model.Version">
+        update t_version
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="iosversion != null">
+                iosversion = #{iosversion},
+            </if>
+            <if test="androidversion != null">
+                androidversion = #{androidversion},
+            </if>
+            <if test="createTime != null">
+                createTime = #{createtime},
+            </if>
+            <if test="updatetime != null">
+                updatetime = #{updatetime},
+            </if>
+            <if test="ioslimitversion != null">
+                ioslimitversion = #{ioslimitversion},
+            </if>
+            <if test="androidlimitversion != null">
+                androidlimitversion = #{androidlimitversion},
+            </if>
+            <if test="iosurl != null">
+                iosurl = #{iosurl},
+            </if>
+            <if test="androidurl != null">
+                androidurl = #{androidurl},
+            </if>
+            <if test="type != null">
+                type = #{type},
+            </if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <select id="selectNewVersion" resultType="com.lokey.student.web.model.Version">
+        <![CDATA[ SELECT * FROM t_version where 1=1 ORDER BY updatetime DESC limit 0, 1]]>
+    </select>
+
+
+</mapper>

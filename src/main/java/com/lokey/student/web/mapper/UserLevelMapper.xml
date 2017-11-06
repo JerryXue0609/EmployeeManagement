@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lokey.student.web.mapper.UserLevelMapper" >
+  <resultMap id="BaseResultMap" type="com.lokey.student.web.model.UserLevel" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="salary" property="salary" jdbcType="INTEGER" />
+    <result column="updateTime" property="updateTime" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, salary, updateTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_user_level
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_user_level
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+
+
+  <insert id="insert" parameterType="com.lokey.student.web.model.UserLevel" >
+    insert into t_user_level (id, name, salary, updateTime)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+      #{salary,jdbcType=INTEGER},
+       #{updateTime,jdbcType=VARCHAR})
+  </insert>
+
+  <update id="updateByPrimaryKey" parameterType="com.lokey.student.web.model.UserLevel" >
+    update t_user_level
+    set id = #{id,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      salary = #{sex,jdbcType=INTEGER},
+      updateTime = #{updateTime,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.lokey.student.web.model.UserLevel" >
+    update t_user_level
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=INTEGER},
+      </if>
+      <if test="salary != null" >
+        salary = #{salary,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        updateTime = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+
+  <select id="selectByPage" resultMap="BaseResultMap" parameterType="java.util.HashMap" >
+    select
+    <include refid="Base_Column_List" />
+    from t_user_level  WHERE  1= 1
+    <if test="searchName != null">
+      AND username LIKE #{searchName}
+    </if>
+    <if test="start != null">
+      LIMIT #{start,jdbcType=INTEGER}, #{end,jdbcType=INTEGER};
+    </if>
+  </select>
+
+  <select id="selectCount" resultType="Integer" parameterType="java.util.HashMap">
+    select count(id) from t_user_level  WHERE  1= 1
+    <if test="searchName != null">
+      AND username LIKE #{searchName}
+    </if>
+  </select>
+</mapper>

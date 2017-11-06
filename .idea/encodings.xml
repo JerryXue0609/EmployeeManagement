@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lokey/student/web/constant/RequestConstant.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lokey/student/web/controller/BaseController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lokey/student/web/controller/UploadController.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lokey/student/web/interceptor/ClientInterceptor.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lokey/student/web/interceptor/CrossclientInterceptor.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lokey/student/web/model/Btfunction.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lokey/student/web/model/Function.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lokey/student/web/model/Manager.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lokey/student/web/model/Managerfunction.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lokey/student/web/model/Model.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lokey/student/web/model/RequestModel.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lokey/student/web/model/ResponseModel.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lokey/student/web/model/Result.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lokey/student/web/model/Version.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lokey/student/web/service/SalaryService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lokey/student/web/service/UserService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lokey/student/web/service/impl/ManagerServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lokey/student/web/service/impl/ModelServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lokey/student/web/service/impl/PermissionServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lokey/student/web/service/impl/RedisServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lokey/student/web/service/impl/RoleServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lokey/student/web/service/impl/SalaryServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lokey/student/web/service/impl/UserServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lokey/student/web/util/DateUtil.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lokey/student/web/util/ExcelUtil.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/lokey/student/web/util/VcodeUtil.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/images/head.jpg" charset="GBK" />
+  </component>
+</project>
